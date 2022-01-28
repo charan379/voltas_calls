@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="login_into_crm_voltas" this:login_into_crm_voltas.uid="153277" this:login_into_crm_voltas.upass="XF)4857837" this:login_into_crm_voltas.In_browser="msedge" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="login_into_crm_voltas" this:login_into_crm_voltas.In_browser="msedge" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="sa_type" Type="InOutArgument(x:String)" />
     <x:Property Name="uid" Type="InArgument(x:String)" />
-    <x:Property Name="upass" Type="InArgument(x:String)" />
+    <x:Property Name="upass" Type="InArgument(ss:SecureString)" />
     <x:Property Name="In_browser" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1031,2173</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1031,2202</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>login_into_crm_voltas_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -41,6 +41,7 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>UiPath.Activities.Contracts</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -73,10 +74,9 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="login_into_crm_voltas" sap:VirtualizedContainerService.HintSize="1041,2108" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="login_into_crm_voltas" sap:VirtualizedContainerService.HintSize="1041,2137" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="new_ses" />
     </Sequence.Variables>
@@ -94,13 +94,13 @@
         </ui:Target>
       </ui:CloseApplication.Target>
     </ui:CloseApplication>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" AutomaticallyDownloadWebDriver="False" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="999,1870" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" NewSession="True" Private="True" Url="https://vcare.voltasworld.com/siebel/app/htim/enu">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" AutomaticallyDownloadWebDriver="False" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="999,1899" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" NewSession="True" Private="True" Url="https://vcare.voltasworld.com/siebel/app/htim/enu">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="965,1769" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="965,1797" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,9 +139,9 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[new_ses = False]" sap:VirtualizedContainerService.HintSize="923,1207" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[new_ses = False]" sap:VirtualizedContainerService.HintSize="923,1235" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Sequence Login" sap:VirtualizedContainerService.HintSize="418,524" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Sequence Login" sap:VirtualizedContainerService.HintSize="418,588" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="new_ses_2" />
                   </Sequence.Variables>
@@ -156,17 +156,39 @@
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEUserName' placeholder='Username' tag='INPUT' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="INTERACTIVE" />
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,188" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  s_swepi_2'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="False" SimulateType="False" Text="[upass]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
-                      </ui:TypeInto.Target>
-                    </ui:TypeInto>
+                    <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[upass]">
+                      <ui:TypeSecureText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05c4a1f0-637a-4fcf-a524-0d838db8a939" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
+                      </ui:TypeSecureText.Target>
+                    </ui:TypeSecureText>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,188" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  s_swepi_2'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_9" SendWindowMessages="False" SimulateType="False" Text="[upass.]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
                   </Sequence>
                   <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  s_swepi_22'" sap:VirtualizedContainerService.HintSize="376,68" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                     <ui:Click.CursorPosition>
@@ -183,7 +205,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="460,1050" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence sap:VirtualizedContainerService.HintSize="460,1076" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -211,7 +233,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[&quot;https://vcare.voltasworld.com/siebel/app/htim/enu&quot;+ &quot;[k(enter)]&quot;]">
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="418,134" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[&quot;https://vcare.voltasworld.com/siebel/app/htim/enu&quot;+ &quot;[k(enter)]&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b0804c93-c58b-4ba2-afbf-f621a3e5d33b" InformativeScreenshot="6c24fe7317fcad14b134b77ad4019f91" Selector="[String.Format(&quot;&lt;wnd app='{0}.exe' title='Siebel HTIM -*' /&gt;&lt;ctrl name='Siebel HTIM -*' role='pane' /&gt;&lt;ctrl name='Address and search bar' role='editable text' /&gt;&quot;, In_browser)]">
                         <ui:Target.TimeoutMS>
@@ -223,7 +245,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <Sequence DisplayName="Sequenc Login" sap:VirtualizedContainerService.HintSize="418,638" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Sequenc Login" sap:VirtualizedContainerService.HintSize="418,664" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -235,17 +257,39 @@
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" InformativeScreenshot="4a05f1481028b9ed00e097a41e0d3801" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEUserName' placeholder='Username' tag='INPUT' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
                       </ui:TypeInto.Target>
                     </ui:TypeInto>
-                    <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  s_swepi_2'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="False" Text="[upass]">
-                        <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" InformativeScreenshot="5a8011352df9970c4fee23bb664caf37" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
-                        </ui:TypeInto.Target>
-                      </ui:TypeInto>
+                      <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[upass]">
+                        <ui:TypeSecureText.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05c4a1f0-637a-4fcf-a524-0d838db8a939" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
+                        </ui:TypeSecureText.Target>
+                      </ui:TypeSecureText>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  s_swepi_2'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="False" Text="[upass]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" InformativeScreenshot="5a8011352df9970c4fee23bb664caf37" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
                     </Sequence>
                     <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  s_swepi_22'" sap:VirtualizedContainerService.HintSize="376,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                       <ui:Click.CursorPosition>

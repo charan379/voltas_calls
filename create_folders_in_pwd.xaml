@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>686,2914</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>686,2991</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>move_csv_file_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -72,7 +72,7 @@
       <AssemblyReference>DocumentFormat.OpenXml</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="create_folders_in_pwd" sap:VirtualizedContainerService.HintSize="376,2849" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="create_folders_in_pwd" sap:VirtualizedContainerService.HintSize="376,2926" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:GenericValue" Name="FolderName" />
       <Variable x:TypeArguments="x:String" Name="ProcessingFiles_Path" />
@@ -87,14 +87,11 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="voltas_Calls_open_calls_dir" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[ProcessingFiles_Path]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">E:\uipath\calls</InArgument>
-      </Assign.Value>
-    </Assign>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
     <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="ui:GenericValue">[FolderName]</OutArgument>

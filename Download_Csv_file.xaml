@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>758,3513</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>758,3590</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -81,7 +81,7 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="768,3448" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="768,3525" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="msedge" Name="browser" />
       <Variable x:TypeArguments="x:Boolean" Name="MenuButton" />
@@ -102,14 +102,11 @@
         <InArgument x:TypeArguments="x:String">[In_browser]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Download Path" sap:VirtualizedContainerService.HintSize="726,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="voltas_Calls_download_dir" DisplayName="Get Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="726,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[Downloads_path]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">C:\Users\lenovo thinkpad\Downloads</InArgument>
-      </Assign.Value>
-    </Assign>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
     <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="page down" sap:VirtualizedContainerService.HintSize="726,152" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
       <ui:SendHotkey.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e0e60cd3-f811-48f2-918d-6cce5ec3a376" InformativeScreenshot="3032933ccdd62624ea8bab25e0f97b0d" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='All Service Requests' /&gt;&lt;webctrl tabindex='0' innertext='All Service RequestsMY*' /&gt;&lt;webctrl tag='DIV' innertext='All Service RequestsMY SRQueryGoCancelMenu*' /&gt;&quot;, browser)]">
