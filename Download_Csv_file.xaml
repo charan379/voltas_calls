@@ -488,7 +488,7 @@
         </ui:Click>
       </Sequence>
     </Switch>
-    <ui:GetLastDownloadedFile DisplayName="Download output File" DownloadFolder="[Downloads_path]" File="[file_name]" sap:VirtualizedContainerService.HintSize="434,405" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="3000">
+    <ui:GetLastDownloadedFile DisplayName="Download output File" DownloadFolder="[Downloads_path]" File="[file_name]" sap:VirtualizedContainerService.HintSize="726,405" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" Timeout="10000">
       <ui:GetLastDownloadedFile.Body>
         <ActivityAction>
           <Sequence DisplayName="Click Next " sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -509,13 +509,10 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a00438f3-7222-4d38-a3ac-17ec3f7fbdfd" InformativeScreenshot="48ade8bf009758ab66ea456504de0062" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='All Service Requests' /&gt;&lt;webctrl tag='BUTTON' type='button' aaname='Export:Next' aria-label='Export:Next' innertext='Next' /&gt;&quot;, browser)]">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a00438f3-7222-4d38-a3ac-17ec3f7fbdfd" InformativeScreenshot="48ade8bf009758ab66ea456504de0062" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='All Service Requests' /&gt;&lt;webctrl tag='BUTTON' type='button' aaname='Export:Next' aria-label='Export:Next' innertext='Next' /&gt;&quot;, browser)]" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
