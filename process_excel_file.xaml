@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="process_excel_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="process_excel_file" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="In_excel_file" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>685,1693</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>686,2106</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>process_excel_file_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="30">
+    <scg:List x:TypeArguments="x:String" Capacity="60">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,6 +39,11 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -69,10 +74,15 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="process_excel_file" sap:VirtualizedContainerService.HintSize="552,1628" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="process_excel_file" sap:VirtualizedContainerService.HintSize="552,2041" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="range" />
       <Variable x:TypeArguments="s:String[]" Name="Cols_to_del" />
@@ -83,18 +93,37 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="entered into process_excel_file sequence" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="510,1435" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[In_excel_file]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="510,1848" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[In_excel_file]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1326" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1739" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="True" DisplayName="Use Application: Book7 - Microsoft Excel" sap:VirtualizedContainerService.HintSize="434,373" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="2c11a2b7-6239-4efa-ae14-461396940751" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1382, 744" FilePath="C:\Program Files (x86)\Microsoft Office\Office15\excel.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVFhHY6AWkMtxkoAyaQsUClw45QtczOTzndPk85wny+c5HZDPdXoFdMB/qBLqAcUSN12FErcohWK3FoUi140KhS63gQ74D3TAf6AD/gMdAMRO/4EO+E+RA5QqPOWUKjy8Fcs9ShXLPBYplrmfVyx1/w90wH+gA/4DHfAf6ID/QAf8p5UD/gMd8B/ogP9ABwAx0HIyHABWQxz+AMTtUOup5wBiwafvX8COgFpPfweAAMg8qPW0iQKYJegYBkBsqPXDyAGkALwOKFnZ83/Zia3/Z+5fheKAvddOgBPQ+rN7aBsCsbMrocr+/w+anA92QMrcOjD/z9+//+1a4mgfBRce3QArXHV6J9gBJ+5cBPNXnNhGn1yQOr8erPD7r5//Y2ZWgNm//vz+b1EfQb9EeOP5fbDiB6+fgum5B9fSNxdkLWyGKv///+uPb/9N68LoWxDlL22HKocEv21zDP1CQK3C+/+DN5Cgv/vqMZhee2YX/RxQv34qWCHIEZHTy8BsUBZ0bU+mfRRo1wT8f/XpHVhh3bop4Gx49ekdMH/7pcO0D4GeHfPBit5++fBfo9IH7IDCpR1gMRDw68umrQNaNs8EF8WgRAgrilVLPcGF0fdfP/4fuXWetlEAywWj1fGAVce0dgCoVAWa9xlqPW2igAD+DMRdENuBgFoOgBpHOgA6ANYxqQA6gP4dE1wA6AADoANAXbN2oAO2AB1wj64OwAaADuABOgDWOZ0GdMBhoAPe0s0BuADQAdJQJgmAgQEAJHUeYp4rxhcAAAAASUVORK5CYII=" InformativeScreenshot="aea8a0f7939672e807359a75aba716b6.png" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Book7 - Microsoft Excel'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
             <ui:InvokeVBA CodeFilePath="vba scripts\CreateNamedRange.vbs" DisplayName="Invoke VBA" EntryMethodName="CrNamedRange" EntryMethodParameters="[{&quot;Calls&quot;}]" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeVBA_2" OutputValue="[range]" />
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Used Range name is  &quot; + range.ToString]" />
             <Assign sap:VirtualizedContainerService.HintSize="434,64" sap2010:WorkflowViewState.IdRef="Assign_1">

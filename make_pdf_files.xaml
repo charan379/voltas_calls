@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="make_pdf_files" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="make_pdf_files" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="In_excel_file" Type="InArgument(x:String)" />
     <x:Property Name="In_pwd_tech" Type="InArgument(x:String)" />
@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>686,2568</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>686,2981</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>make_pdf_files_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -44,6 +44,11 @@
       <x:String>BalaReva.Excel.Enums</x:String>
       <x:String>BalaReva.Excel.Merge</x:String>
       <x:String>BalaReva.Excel.Base</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -76,10 +81,15 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>BalaReva.Excel</AssemblyReference>
       <AssemblyReference>BalaReva.Excel.Base</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="make_pdf_files" sap:VirtualizedContainerService.HintSize="494,2503" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="make_pdf_files" sap:VirtualizedContainerService.HintSize="552,2916" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="DT3" />
       <Variable x:TypeArguments="sd:DataTable" Name="DT_technicians" />
@@ -91,21 +101,40 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="452,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="entered make_pdf_files squence" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="make pdfs" sap:VirtualizedContainerService.HintSize="452,2310" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[In_excel_file]">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="entered make_pdf_files squence" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="make pdfs" sap:VirtualizedContainerService.HintSize="510,2723" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[In_excel_file]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,2201" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2614" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[DT3]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="376,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="callsRange" SheetName="Calls" />
-            <Assign sap:VirtualizedContainerService.HintSize="376,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="True" DisplayName="Use Application: Book7 - Microsoft Excel" sap:VirtualizedContainerService.HintSize="434,373" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="2c11a2b7-6239-4efa-ae14-461396940751" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1382, 744" FilePath="C:\Program Files (x86)\Microsoft Office\Office15\excel.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVFhHY6AWkMtxkoAyaQsUClw45QtczOTzndPk85wny+c5HZDPdXoFdMB/qBLqAcUSN12FErcohWK3FoUi140KhS63gQ74D3TAf6AD/gMdAMRO/4EO+E+RA5QqPOWUKjy8Fcs9ShXLPBYplrmfVyx1/w90wH+gA/4DHfAf6ID/QAf8p5UD/gMd8B/ogP9ABwAx0HIyHABWQxz+AMTtUOup5wBiwafvX8COgFpPfweAAMg8qPW0iQKYJegYBkBsqPXDyAGkALwOKFnZ83/Zia3/Z+5fheKAvddOgBPQ+rN7aBsCsbMrocr+/w+anA92QMrcOjD/z9+//+1a4mgfBRce3QArXHV6J9gBJ+5cBPNXnNhGn1yQOr8erPD7r5//Y2ZWgNm//vz+b1EfQb9EeOP5fbDiB6+fgum5B9fSNxdkLWyGKv///+uPb/9N68LoWxDlL22HKocEv21zDP1CQK3C+/+DN5Cgv/vqMZhee2YX/RxQv34qWCHIEZHTy8BsUBZ0bU+mfRRo1wT8f/XpHVhh3bop4Gx49ekdMH/7pcO0D4GeHfPBit5++fBfo9IH7IDCpR1gMRDw68umrQNaNs8EF8WgRAgrilVLPcGF0fdfP/4fuXWetlEAywWj1fGAVce0dgCoVAWa9xlqPW2igAD+DMRdENuBgFoOgBpHOgA6ANYxqQA6gP4dE1wA6AADoANAXbN2oAO2AB1wj64OwAaADuABOgDWOZ0GdMBhoAPe0s0BuADQAdJQJgmAgQEAJHUeYp4rxhcAAAAASUVORK5CYII=" InformativeScreenshot="aea8a0f7939672e807359a75aba716b6.png" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Book7 - Microsoft Excel'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[DT3]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="callsRange" SheetName="Calls" />
+            <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[DT_technicians]</OutArgument>
               </Assign.To>
@@ -113,7 +142,7 @@
                 <InArgument x:TypeArguments="sd:DataTable">[DT3.DefaultView.ToTable(true, "Owner")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="376,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[DT_areas]</OutArgument>
               </Assign.To>
@@ -121,9 +150,9 @@
                 <InArgument x:TypeArguments="sd:DataTable">[DT3.DefaultView.ToTable(true, "Area")]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ExcelInsertDeleteRows DisplayName="Insert/Delete Rows" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="ExcelInsertDeleteRows_1" Mode="Add" NoRows="3" Position="1" SheetName="Calls" />
-            <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="376,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Calls" Text="Calls By " />
-            <Sequence DisplayName="Make technicain PDFs" sap:VirtualizedContainerService.HintSize="376,709" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <ui:ExcelInsertDeleteRows DisplayName="Insert/Delete Rows" sap:VirtualizedContainerService.HintSize="434,185" sap2010:WorkflowViewState.IdRef="ExcelInsertDeleteRows_1" Mode="Add" NoRows="3" Position="1" SheetName="Calls" />
+            <ui:ExcelWriteCell Cell="A1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Calls" Text="Calls By " />
+            <Sequence DisplayName="Make technicain PDFs" sap:VirtualizedContainerService.HintSize="434,709" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Object" Name="ntg" />
               </Sequence.Variables>
@@ -147,7 +176,7 @@
               <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="vba scripts\AutoFilterPDF.vbs" DisplayName="Invoke VBA" EntryMethodName="ExcelAutoFilterAndPrintPdf" EntryMethodParameters="[{&quot;Calls&quot;,&#xA;&quot;Technicians&quot;,&#xA;Tech_field.ToString,&#xA;In_pwd_tech.ToString}]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeVBA_2" />
               <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="Technician Wise PDF Completed" />
             </Sequence>
-            <Sequence DisplayName="Make Area PDFs" sap:VirtualizedContainerService.HintSize="376,709" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Make Area PDFs" sap:VirtualizedContainerService.HintSize="434,709" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Int32" Name="Area_field" />
               </Sequence.Variables>

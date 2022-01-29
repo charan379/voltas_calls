@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1031,2202</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1031,2301</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>login_into_crm_voltas_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -76,7 +76,7 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="login_into_crm_voltas" sap:VirtualizedContainerService.HintSize="1041,2137" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="login_into_crm_voltas" sap:VirtualizedContainerService.HintSize="1041,2236" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="new_ses" />
     </Sequence.Variables>
@@ -94,31 +94,32 @@
         </ui:Target>
       </ui:CloseApplication.Target>
     </ui:CloseApplication>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" AutomaticallyDownloadWebDriver="False" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="999,1899" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" NewSession="True" Private="True" Url="https://vcare.voltasworld.com/siebel/app/htim/enu">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" UiBrowser="{x:Null}" AutomaticallyDownloadWebDriver="False" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="999,1998" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" NewSession="True" Private="True" Url="https://vcare.voltasworld.com/siebel/app/htim/enu">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="965,1797" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="965,1897" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="923,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser " sap:VirtualizedContainerService.HintSize="923,260" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="7459f5b31b1d7ebe7b28f766b450f471" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&quot;, In_browser)]">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser " sap:VirtualizedContainerService.HintSize="923,362" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="7459f5b31b1d7ebe7b28f766b450f471" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&quot;, In_browser)]">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,176" sap2010:WorkflowViewState.IdRef="Sequence_30">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
                     <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="RefreshBrowser_3" />
                   </Sequence>
                 </ActivityAction>
@@ -139,9 +140,9 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[new_ses = False]" sap:VirtualizedContainerService.HintSize="923,1235" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[new_ses = False]" sap:VirtualizedContainerService.HintSize="923,1233" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence DisplayName="Sequence Login" sap:VirtualizedContainerService.HintSize="418,588" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Sequence Login" sap:VirtualizedContainerService.HintSize="418,587" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="new_ses_2" />
                   </Sequence.Variables>
@@ -156,7 +157,7 @@
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="17d30b00-ad9e-4149-8967-626e0a4576f9" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEUserName' placeholder='Username' tag='INPUT' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="INTERACTIVE" />
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <Sequence DisplayName="Type password" sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,7 +168,7 @@
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05c4a1f0-637a-4fcf-a524-0d838db8a939" Selector="[String.Format(&quot;&lt;html app='{0}.exe' title='Siebel HTIM' /&gt;&lt;webctrl name='SWEPassword' placeholder='Password' tag='INPUT' type='password' /&gt;&quot;, In_browser)]" TimeoutMS="20000" WaitForReady="COMPLETE" />
                       </ui:TypeSecureText.Target>
                     </ui:TypeSecureText>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                       <ui:CommentOut.Body>
                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,188" sap2010:WorkflowViewState.IdRef="Sequence_31">
                           <sap:WorkflowViewStateService.ViewState>

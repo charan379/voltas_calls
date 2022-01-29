@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="convert_csv_to_excel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="convert_csv_to_excel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="In_pwdExcel_Folder" Type="InArgument(x:String)" />
     <x:Property Name="In_pwdCsv_File" Type="InArgument(x:String)" />
@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>685,1368</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>686,1781</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>convert_csv_to_excel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="34">
+    <scg:List x:TypeArguments="x:String" Capacity="68">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -74,10 +74,13 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="convert_csv_to_excel" sap:VirtualizedContainerService.HintSize="476,1303" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="convert_csv_to_excel" sap:VirtualizedContainerService.HintSize="552,1716" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="DT_from_csv" />
       <Variable x:TypeArguments="x:String" Default="E:\uipath\calls\27 January 2022, Thursday ( Time 14 - 43 - 30 )\excel\calls.xlsx" Name="excel_file" />
@@ -89,9 +92,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Entered in Convert_csv_to_excel squence" />
-    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[DT_from_csv]" Delimitator="Tab" DisplayName="Read CSV" FilePath="[In_pwdCsv_File]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Entered in Convert_csv_to_excel squence" />
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[DT_from_csv]" Delimitator="Tab" DisplayName="Read CSV" FilePath="[In_pwdCsv_File]" sap:VirtualizedContainerService.HintSize="510,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[excel_file]</OutArgument>
       </Assign.To>
@@ -99,22 +102,41 @@
         <InArgument x:TypeArguments="x:String">[In_pwdExcel_Folder+"\"+"calls.xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,617" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[excel_file]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="510,1030" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[excel_file]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,508" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,921" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelWriteRange AddHeaders="True" DataTable="[DT_from_csv]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Calls" StartingCell="A1" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Excel File Created" />
-            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="vba scripts\voltasCallsRefine.vbs" DisplayName="Invoke VBA" EntryMethodName="VoltasCallsFormaterExcel" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeVBA_3" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Calls Refining Macro applied" />
+            <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="True" DisplayName="Use Application: Book7 - Microsoft Excel" sap:VirtualizedContainerService.HintSize="434,373" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="2c11a2b7-6239-4efa-ae14-461396940751" Version="V1" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1382, 744" FilePath="C:\Program Files (x86)\Microsoft Office\Office15\excel.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVFhHY6AWkMtxkoAyaQsUClw45QtczOTzndPk85wny+c5HZDPdXoFdMB/qBLqAcUSN12FErcohWK3FoUi140KhS63gQ74D3TAf6AD/gMdAMRO/4EO+E+RA5QqPOWUKjy8Fcs9ShXLPBYplrmfVyx1/w90wH+gA/4DHfAf6ID/QAf8p5UD/gMd8B/ogP9ABwAx0HIyHABWQxz+AMTtUOup5wBiwafvX8COgFpPfweAAMg8qPW0iQKYJegYBkBsqPXDyAGkALwOKFnZ83/Zia3/Z+5fheKAvddOgBPQ+rN7aBsCsbMrocr+/w+anA92QMrcOjD/z9+//+1a4mgfBRce3QArXHV6J9gBJ+5cBPNXnNhGn1yQOr8erPD7r5//Y2ZWgNm//vz+b1EfQb9EeOP5fbDiB6+fgum5B9fSNxdkLWyGKv///+uPb/9N68LoWxDlL22HKocEv21zDP1CQK3C+/+DN5Cgv/vqMZhee2YX/RxQv34qWCHIEZHTy8BsUBZ0bU+mfRRo1wT8f/XpHVhh3bop4Gx49ekdMH/7pcO0D4GeHfPBit5++fBfo9IH7IDCpR1gMRDw68umrQNaNs8EF8WgRAgrilVLPcGF0fdfP/4fuXWetlEAywWj1fGAVce0dgCoVAWa9xlqPW2igAD+DMRdENuBgFoOgBpHOgA6ANYxqQA6gP4dE1wA6AADoANAXbN2oAO2AB1wj64OwAaADuABOgDWOZ0GdMBhoAPe0s0BuADQAdJQJgmAgQEAJHUeYp4rxhcAAAAASUVORK5CYII=" InformativeScreenshot="aea8a0f7939672e807359a75aba716b6.png" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Book7 - Microsoft Excel'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+            <ui:ExcelWriteRange AddHeaders="True" DataTable="[DT_from_csv]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Calls" StartingCell="A1" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Excel File Created" />
+            <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="vba scripts\voltasCallsRefine.vbs" DisplayName="Invoke VBA" EntryMethodName="VoltasCallsFormaterExcel" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="InvokeVBA_3" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Calls Refining Macro applied" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
@@ -125,7 +147,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[Out_excel_file]</OutArgument>
       </Assign.To>
@@ -133,6 +155,6 @@
         <InArgument x:TypeArguments="x:String">[excel_file.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Excel File Link is &quot; + Out_excel_file]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Excel File Link is &quot; + Out_excel_file]" />
   </Sequence>
 </Activity>
